@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css quiz.css">
+        <title> Quiz de História (Questão 3) </title>
+    </head>
+    <body>
+        <h1> Questão 3 </h1>
+        <br> </br>
+        <h3> Qual meio de transportes foram utilizados na época? </h3>
+        <br> </br>
+        <button class="resposta1", onclick="errou()"> Carros e metros </button> 
+        <button class="resposta", onclick="errou()"> Trems e motos </button>
+        <button class="resposta2" onclick="errou()"> Carros, trems e metros </button>
+        <button class="respostacerta", onclick="respostacerta()"> Carros, trems e aviões </button>
+    </body>
+    <script>
+        let jatoco = false
+        let acerto = sessionStorage.getItem("pont")
+        sessionStorage.setItem("pont", acerto + 1)
+        async function respostacerta(){
+            if (jatoco === false) {
+                jatoco = true
+                console.log(jatoco)
+            sessionStorage.setItem("acertos", +1)
+            new Audio("correct.mp3").play()
+            console.log(document.querySelector(".respostacerta").style.backgroundColor);
+            document.querySelector(".respostacerta").style.backgroundColor = "green";
+            document.querySelector(".resposta").style.backgroundColor = "grey";
+            document.querySelector(".resposta1").style.backgroundColor = "grey";
+            document.querySelector(".resposta2").style.backgroundColor = "grey";
+            
+            setTimeout(function a(){
+                window.location.href='quiz4.html'
+            }, 2000
+            )
+        }
+     }
+     function errou(){
+                  if (jatoco === false) {
+                jatoco = true
+                console.log(jatoco)
+            sessionStorage.setItem("acertos", +1)
+            new Audio("erro.mp3").play()
+            console.log(document.querySelector(".respostacerta").style.backgroundColor);
+            document.querySelector(".respostacerta").style.backgroundColor = "green";
+            document.querySelector(".resposta").style.backgroundColor = "grey";
+            document.querySelector(".resposta1").style.backgroundColor = "grey";
+            document.querySelector(".resposta2").style.backgroundColor = "grey";
+            
+            setTimeout(function a(){
+                window.location.href='quiz4.html'
+            }, 2000
+        )
+        }
+     }
+    </script>
+</html>
