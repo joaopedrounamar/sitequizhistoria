@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="css.css">
+    <head>
+        <title> Fim do quiz. </title>
+    </head>
+    <body>
+        <h1> Você acabou! </h1>
+        <br> </br>
+        <h2> E acertou exatamente:  </h2>
+        <h2 class="a"> E acertou exatamente:  </h2>
+        <h2 class="b"> Parabéns  </h2>
+        <h2>  </h2>
+        <button onclick="a()"> Clique aqui para refazer o quiz! </button>
+        <p> Obrigado por jogar! </p>
+    </body>
+    <script>
+        let acertos = sessionStorage.getItem("pont")
+        document.querySelector(".a").textContent = (acertos + " de 5!")
+        if (acertos == 0) {
+            document.querySelector(".b").textContent = ("Parabéns, você é muito burro!")
+        }
+        if (acertos == 1) {
+            document.querySelector(".b").textContent = ("Parabéns, você deu o seu melhor! Mas se esse é o seu melhor..")
+        }
+        if (acertos == 2) {
+            document.querySelector(".b").textContent = ("Melhor que o Nicolas.")
+        }
+        if (acertos == 3) {
+            document.querySelector(".b").textContent = ("Hmm, foi mais que arredondamente a metade!")
+        }
+        if (acertos == 4) {
+            document.querySelector(".b").textContent = ("Você quase acertou tudo! Boa")
+        }
+        if (acertos == 5) {
+            document.querySelector(".b").textContent = ("Parece que temos um gabaritador! Parabéns!")
+        }
+        function a(){
+         new Audio("universfield-mouse-click-351398.mp3").play()
+         setTimeout(function b(){
+                window.location.href='index.html'
+            }, 500 
+        )
+        }        
+    </script>
+</html>
