@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css quiz.css">
+        <title> Quiz de História (Questão 5) </title>
+    </head>
+    <body>
+        <h1> Questão 5 </h1>
+        <br> </br>
+        <h3> Quais setores industrias estavam populares na época? </h3>
+        <br> </br>
+        <button class="resposta1", onclick="errou()"> Iphone, Samsung e Xiaomi </button> 
+        <button class="resposta", onclick="errou()"> Automobilístico, Metalúrgico e Automação e Fabricação de Equipamentos para Movimentação de Cargas </button>
+        <button class="resposta2" onclick="errou()"> Metalúrgico e Químico </button>
+        <button class="respostacerta", onclick="respostacerta()"> Químico, Automobilístico, Metalúrgico e de Comunicação </button>
+    </body>
+    <script>
+        let jatoco = false
+        let acerto = sessionStorage.getItem("pont")
+               let acerots = sessionStorage.getItem("acertos")
+            sessionStorage.setItem("acertos", acerots + 1)
+        async function respostacerta(){
+            if (jatoco === false) {
+                jatoco = true
+                console.log(jatoco)
+            sessionStorage.setItem("acertos", +1)
+            new Audio("correct.mp3").play()
+            console.log(document.querySelector(".respostacerta").style.backgroundColor);
+            document.querySelector(".respostacerta").style.backgroundColor = "green";
+            document.querySelector(".resposta").style.backgroundColor = "grey";
+            document.querySelector(".resposta1").style.backgroundColor = "grey";
+            document.querySelector(".resposta2").style.backgroundColor = "grey";
+            
+            setTimeout(function a(){
+                window.location.href='fim.html'
+            }, 2000
+            )
+        }
+     }
+     function errou(){
+                  if (jatoco === false) {
+                jatoco = true
+                console.log(jatoco)
+            new Audio("erro.mp3").play()
+            console.log(document.querySelector(".respostacerta").style.backgroundColor);
+            document.querySelector(".respostacerta").style.backgroundColor = "green";
+            document.querySelector(".resposta").style.backgroundColor = "grey";
+            document.querySelector(".resposta1").style.backgroundColor = "grey";
+            document.querySelector(".resposta2").style.backgroundColor = "grey";
+            
+            setTimeout(function a(){
+                window.location.href='fim.html'
+            }, 2000
+        )
+        }
+     }
+    </script>
+</html>

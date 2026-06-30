@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css quiz.css">
+        <title> Quiz de História (Questão 1) </title>
+    </head>
+    <body>
+        <h1> Questão 1 </h1>
+        <br> </br>
+        <h3> Em que ano começou a Segunda Revolução Industrial? </h3>
+        <br> </br>
+        <button class="respostacerta", onclick="respostacerta()"> Entre 1850 e 1870 </button> 
+        <button class="resposta", onclick="errou()"> Entre 1820 e 1840 </button>
+        <button class="resposta1", onclick="errou()"> Entre 1870 e 1890 </button>
+        <button class="resposta2", onclick="errou()"> Entre 1910 e 1940 </button>
+    </body>
+    <script>
+        let jatoco = false
+        async function respostacerta(){
+            if (jatoco === false) {
+                jatoco = true
+                let acerto = sessionStorage.getItem("pont")
+               let acerots = sessionStorage.getItem("acertos")
+            sessionStorage.setItem("acertos", acerots + 1)
+                console.log(jatoco)
+            sessionStorage.setItem("acertos", +1)
+            new Audio("correct.mp3").play()
+            console.log(document.querySelector(".respostacerta").style.backgroundColor);
+            document.querySelector(".respostacerta").style.backgroundColor = "green";
+            document.querySelector(".resposta").style.backgroundColor = "grey";
+            document.querySelector(".resposta1").style.backgroundColor = "grey";
+            document.querySelector(".resposta2").style.backgroundColor = "grey";
+            
+            setTimeout(function a(){
+                window.location.href='quiz2.html'
+            }, 2000
+            )
+        }
+     }
+     function errou(){
+                  if (jatoco === false) {
+                jatoco = true
+                console.log(jatoco)
+                let acerots = sessionStorage.getItem("acertos")
+            new Audio("erro.mp3").play()
+            console.log(document.querySelector(".respostacerta").style.backgroundColor);
+            document.querySelector(".respostacerta").style.backgroundColor = "green";
+            document.querySelector(".resposta").style.backgroundColor = "grey";
+            document.querySelector(".resposta1").style.backgroundColor = "grey";
+            document.querySelector(".resposta2").style.backgroundColor = "grey";
+            
+            setTimeout(function a(){
+                window.location.href='quiz2.html'
+            }, 2000
+        )
+        }
+     }
+    </script>
+</html>
